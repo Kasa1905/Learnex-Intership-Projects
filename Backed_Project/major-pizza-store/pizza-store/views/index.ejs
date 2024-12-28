@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza Store</title>
+</head>
+<body>
+  <h1>Pizza Store</h1>
+  <a href="/add">Add New Pizza</a>
+  <ul>
+    <% pizzas.forEach(pizza => { %>
+      <li>
+        <h2><%= pizza.name %></h2>
+        <p><%= pizza.description %></p>
+        <p><%= pizza.price %> USD</p>
+        <img src="<%= pizza.imageUrl %>" alt="<%= pizza.name %>" style="width: 200px; height: 200px;">
+        <a href="/items/<%= pizza._id %>">Edit</a> | 
+        <form action="/items/<%= pizza._id %>" method="POST" style="display:inline;">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

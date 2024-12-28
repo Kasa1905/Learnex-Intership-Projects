@@ -1,0 +1,131 @@
+{
+       "info": {
+         "name": "Pizza Store API",
+         "description": "Collection for testing the CRUD operations on Pizza Store items API.",
+         "_postman_id": "12345-abcde-67890-fghij-xyz",
+         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+       },
+       "item": [
+         {
+           "name": "Create Pizza",
+           "request": {
+             "method": "POST",
+             "url": {
+               "raw": "http://localhost:3000/items",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["items"]
+             },
+             "body": {
+               "mode": "raw",
+               "raw": "{\"name\": \"Margherita\",\"description\": \"Classic pizza with tomatoes and mozzarella\",\"price\": 12.99,\"ingredients\": [\"tomato\", \"mozzarella\", \"basil\"]}"
+             },
+             "header": [
+               {
+                 "key": "Content-Type",
+                 "value": "application/json"
+               }
+             ]
+           },
+           "response": []
+         },
+         {
+           "name": "Get All Pizzas",
+           "request": {
+             "method": "GET",
+             "url": {
+               "raw": "http://localhost:3000/items",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["items"]
+             }
+           },
+           "response": [
+             {
+               "id": "1",
+               "name": "Margherita",
+               "description": "Classic pizza with tomatoes and mozzarella",
+               "price": 12.99,
+               "ingredients": ["tomato", "mozzarella", "basil"]
+             },
+             {
+               "id": "2",
+               "name": "Pepperoni",
+               "description": "Pizza with pepperoni and cheese",
+               "price": 14.99,
+               "ingredients": ["pepperoni", "cheese", "tomato"]
+             }
+           ]
+         },
+         {
+           "name": "Get Pizza by ID",
+           "request": {
+             "method": "GET",
+             "url": {
+               "raw": "http://localhost:3000/items/1",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["items", "1"]
+             }
+           },
+           "response": [
+             {
+               "id": "1",
+               "name": "Margherita",
+               "description": "Classic pizza with tomatoes and mozzarella",
+               "price": 12.99,
+               "ingredients": ["tomato", "mozzarella", "basil"]
+             }
+           ]
+         },
+         {
+           "name": "Update Pizza by ID",
+           "request": {
+             "method": "PUT",
+             "url": {
+               "raw": "http://localhost:3000/items/1",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["items", "1"]
+             },
+             "body": {
+               "mode": "raw",
+               "raw": "{\"name\": \"Updated Margherita\",\"description\": \"Classic pizza with extra cheese\",\"price\": 15.99,\"ingredients\": [\"tomato\", \"mozzarella\", \"basil\", \"extra cheese\"]}"
+             },
+             "header": [
+               {
+                 "key": "Content-Type",
+                 "value": "application/json"
+               }
+             ]
+           },
+           "response": [
+             {
+               "id": "1",
+               "name": "Updated Margherita",
+               "description": "Classic pizza with extra cheese",
+               "price": 15.99,
+               "ingredients": ["tomato", "mozzarella", "basil", "extra cheese"]
+             }
+           ]
+         },
+         {
+           "name": "Delete Pizza by ID",
+           "request": {
+             "method": "DELETE",
+             "url": {
+               "raw": "http://localhost:3000/items/1",
+               "host": ["localhost"],
+               "port": "3000",
+               "path": ["items", "1"]
+             }
+           },
+           "response": [
+             {
+               "message": "Pizza item deleted successfully"
+             }
+           ]
+         }
+       ]
+     }
+     
